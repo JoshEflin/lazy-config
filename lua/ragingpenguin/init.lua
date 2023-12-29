@@ -1,3 +1,3 @@
-print "inside raging penguin"
 require('ragingpenguin.remap')
-require ('ragingpenguin.lazy')
+require('ragingpenguin.set')
+require('ragingpenguin.lazy')
