@@ -1,4 +1,9 @@
 return {
+  {
+    "folke/trouble.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    options = {},
+  },
 
   {
     'nvim-telescope/telescope.nvim',
@@ -16,8 +21,11 @@ return {
   { 'lukas-reineke/lsp-format.nvim' },
   { 'nvim-treesitter/nvim-treesitter' },
   { 'nvim-treesitter/playground' },
-  { 'theprimeagen/vim-apm' },
-  { 'theprimeagen/harpoon' },
+  {
+    'theprimeagen/harpoon',
+    branch = 'harpoon2',
+    requires = { 'nvim-lua/plenary.nvim' },
+  },
   { 'mbbill/undotree' },
   { 'tpope/vim-fugitive' },
   {
