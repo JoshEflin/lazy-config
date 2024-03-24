@@ -47,3 +47,6 @@ local t = ls.text_node
 local c = ls.choice_node
 local d = ls.dynamic_node
 local f = ls.function_node
+
+-- VSCode style snippets (if I decide to port any over)
+--require ("luasnip.loaders.from_vscode").lazy_load({ paths= {" ./path/to/snippets" } })
