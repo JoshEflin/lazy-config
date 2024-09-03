@@ -49,6 +49,21 @@ return {
             vim.cmd('colorscheme tokyonight')
         end
     },
+    {
+        'mfussenegger/nvim-dap',
+        dependencies = {
+            'leoluz/nvim-dap-go',
+            'rcarriga/nvim-dap-ui',
+            'theHamsta/nvim-dap-virtual-text',
+            'nvim-neotest/nvim-nio',
+        },
+    },
+    { "mxsdev/nvim-dap-vscode-js",      requires = { "mfussenegger/nvim-dap" } },
+    {
+        "microsoft/vscode-js-debug",
+        opt = true,
+        run = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out"
+    },
     { 'laytan/cloak.nvim' },
     { 'lukas-reineke/lsp-format.nvim' },
     { 'nvim-treesitter/nvim-treesitter' },
