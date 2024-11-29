@@ -36,7 +36,6 @@ return {
             },
         },
     },
-
     {
         'nvim-telescope/telescope.nvim',
         tag = '0.1.2',
@@ -64,11 +63,26 @@ return {
         "leoluz/nvim-dap-go",
         dependencies = { "mfussenegger/nvim-dap" },
     },
-    { "mxsdev/nvim-dap-vscode-js",      requires = { "mfussenegger/nvim-dap" } },
     {
         "microsoft/vscode-js-debug",
         opt = true,
-        run = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out"
+        build = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out",
+        version = "1.*",
+    },
+
+    {
+        "mxsdev/nvim-dap-vscode-js",
+        config = function()
+            require("dap-vscode-js").setup({
+                debugger_path = vim.fn.resolve(vim.fn.stdpath("data") .. "/lazy/vscode-js-debug"),
+            })
+        end,
+
+        requires = { "mfussenegger/nvim-dap" }
+    },
+    {
+        "Joakker/lua-json5",
+        build = "./install.sh",
     },
     { 'laytan/cloak.nvim' },
     { 'lukas-reineke/lsp-format.nvim' },

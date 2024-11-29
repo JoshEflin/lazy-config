@@ -1,8 +1,8 @@
 -- Ensure dap is loaded
 local ok_dap, dap = pcall(require, "dap")
 if not ok_dap then
-  vim.notify("nvim-dap not found", vim.log.levels.ERROR)
-  return
+    vim.notify("nvim-dap not found", vim.log.levels.ERROR)
+    return
 end
 
 -- Keybindings
@@ -20,7 +20,7 @@ vim.keymap.set("n", "<Leader>dl", dap.run_last, opts)
 -- Language-specific configurations (example for Go)
 local ok_dap_go, dap_go = pcall(require, "dap-go")
 if ok_dap_go then
-  dap_go.setup()
+    dap_go.setup()
 else
-  vim.notify("nvim-dap-go not found", vim.log.levels.WARN)
+    vim.notify("nvim-dap-go not found", vim.log.levels.WARN)
 end
