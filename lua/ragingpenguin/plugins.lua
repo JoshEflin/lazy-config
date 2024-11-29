@@ -50,13 +50,19 @@ return {
         end
     },
     {
-        'mfussenegger/nvim-dap',
-        dependencies = {
-            'leoluz/nvim-dap-go',
-            'rcarriga/nvim-dap-ui',
-            'theHamsta/nvim-dap-virtual-text',
-            'nvim-neotest/nvim-nio',
-        },
+        "mfussenegger/nvim-dap",
+    },
+    {
+        "rcarriga/nvim-dap-ui",
+        dependencies = { "mfussenegger/nvim-dap", "nvim-neotest/nvim-nio" }
+    },
+    {
+        "theHamsta/nvim-dap-virtual-text",
+        dependencies = { "mfussenegger/nvim-dap" },
+    },
+    {
+        "leoluz/nvim-dap-go",
+        dependencies = { "mfussenegger/nvim-dap" },
     },
     { "mxsdev/nvim-dap-vscode-js",      requires = { "mfussenegger/nvim-dap" } },
     {
@@ -92,6 +98,13 @@ return {
             { 'rafamadriz/friendly-snippets' },
             { 'elentok/format-on-save.nvim' },
         }
+    },
+    {
+        "jay-babu/mason-nvim-dap.nvim",
+        dependencies = { "williamboman/mason.nvim", "mfussenegger/nvim-dap" },
+        config = function()
+            require("mason-nvim-dap").setup({})
+        end,
     },
     {
         'nvim-lualine/lualine.nvim',
