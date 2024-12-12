@@ -26,6 +26,10 @@ require('mason-lspconfig').setup({
         end,
     }
 })
+require('mason-nvim-dap').setup({
+    ensure_installed = { "go", "typescript", "javascript", "ocaml" },
+    automatic_installation = true,
+})
 
 --local cmp = require('cmp')
 --local cmp_select = { behavior = cmp.SelectBehavior.Select }

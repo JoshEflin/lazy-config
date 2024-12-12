@@ -37,6 +37,51 @@ return {
         },
     },
     {
+        "NeogitOrg/neogit",
+        dependencies = {
+            "nvim-lua/plenary.nvim", -- required
+            "sindrets/diffview.nvim", -- optional - Diff integration
+
+            -- Only one of these is needed.
+            "nvim-telescope/telescope.nvim", -- optional
+            "ibhagwan/fzf-lua",      -- optional
+            "echasnovski/mini.pick", -- optional
+        },
+        config = true
+    },
+
+    {
+        { -- Add indentation guides even on blank lines
+            'lukas-reineke/indent-blankline.nvim',
+            -- Enable `lukas-reineke/indent-blankline.nvim`
+            -- See `:help ibl`
+            main = 'ibl',
+            opts = {},
+        },
+    },
+    {
+        'nvim-neo-tree/neo-tree.nvim',
+        version = '*',
+        dependencies = {
+            'nvim-lua/plenary.nvim',
+            'nvim-tree/nvim-web-devicons', -- not strictly required, but recommended
+            'MunifTanjim/nui.nvim',
+        },
+        cmd = 'Neotree',
+        keys = {
+            { '\\', ':Neotree reveal<CR>', desc = 'NeoTree reveal', silent = true },
+        },
+        opts = {
+            filesystem = {
+                window = {
+                    mappings = {
+                        ['\\'] = 'close_window',
+                    },
+                },
+            },
+        },
+    },
+    {
         'nvim-telescope/telescope.nvim',
         tag = '0.1.2',
         dependencies = { { 'nvim-lua/plenary.nvim' } }
