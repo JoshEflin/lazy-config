@@ -1,5 +1,9 @@
 local lsp_zero = require('lsp-zero')
 
+require 'lspconfig'.eslint.setup {
+    enabled = false,
+}
+
 lsp_zero.on_attach(function(client, bufnr)
     local opts = { buffer = bufnr, remap = false }
 
@@ -17,7 +21,7 @@ end)
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
-    ensure_installed = { 'eslint', 'rust_analyzer', 'ocamllsp', 'gopls' },
+    ensure_installed = { 'rust_analyzer', 'ocamllsp', 'gopls' },
     handlers = {
         lsp_zero.default_setup,
         lua_ls = function()

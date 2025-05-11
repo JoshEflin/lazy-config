@@ -39,13 +39,13 @@ return {
     {
         "NeogitOrg/neogit",
         dependencies = {
-            "nvim-lua/plenary.nvim", -- required
+            "nvim-lua/plenary.nvim",  -- required
             "sindrets/diffview.nvim", -- optional - Diff integration
 
             -- Only one of these is needed.
             "nvim-telescope/telescope.nvim", -- optional
-            "ibhagwan/fzf-lua",      -- optional
-            "echasnovski/mini.pick", -- optional
+            "ibhagwan/fzf-lua",              -- optional
+            "echasnovski/mini.pick",         -- optional
         },
         config = true
     },
@@ -126,6 +126,13 @@ return {
         requires = { "mfussenegger/nvim-dap" }
     },
     {
+        "jay-babu/mason-nvim-dap.nvim",
+        dependencies = { "williamboman/mason.nvim", "mfussenegger/nvim-dap" },
+        config = function()
+            require("mason-nvim-dap").setup({})
+        end,
+    },
+    {
         "Joakker/lua-json5",
         build = "./install.sh",
     },
@@ -133,13 +140,13 @@ return {
     { 'lukas-reineke/lsp-format.nvim' },
     { 'nvim-treesitter/nvim-treesitter' },
     { 'nvim-treesitter/playground' },
+    { "ellisonleao/dotenv.nvim" },
     {
         'theprimeagen/harpoon',
         branch = 'harpoon2',
         requires = { 'nvim-lua/plenary.nvim' },
     },
     { 'mbbill/undotree' },
-    { 'tpope/vim-fugitive' },
     {
         'VonHeikemen/lsp-zero.nvim',
         branch = 'v3.x',
@@ -157,13 +164,6 @@ return {
             { 'rafamadriz/friendly-snippets' },
             { 'elentok/format-on-save.nvim' },
         }
-    },
-    {
-        "jay-babu/mason-nvim-dap.nvim",
-        dependencies = { "williamboman/mason.nvim", "mfussenegger/nvim-dap" },
-        config = function()
-            require("mason-nvim-dap").setup({})
-        end,
     },
     {
         'nvim-lualine/lualine.nvim',
