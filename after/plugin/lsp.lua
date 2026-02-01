@@ -1,8 +1,6 @@
 local lsp_zero = require('lsp-zero')
 
-require 'lspconfig'.eslint.setup {
-    enabled = false,
-}
+vim.lsp.enable('eslint')
 
 lsp_zero.on_attach(function(client, bufnr)
     local opts = { buffer = bufnr, remap = false }

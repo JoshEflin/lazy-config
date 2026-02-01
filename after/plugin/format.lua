@@ -13,6 +13,7 @@ format_on_save.setup({
         javascript = formatters.lsp,
         json = formatters.lsp,
         lua = formatters.lsp,
+        go = formatters.lsp,
         markdown = formatters.lsp,
         openscad = formatters.lsp,
         python = formatters.black,
