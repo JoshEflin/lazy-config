@@ -1,5 +1,32 @@
 return {
     {
+        "olimorris/codecompanion.nvim",
+        dependencies = { "nvim-lua/plenary.nvim" },
+        cmd = { "CodeCompanion", "CodeCompanionChat", "CodeCompanionCmd" },
+        keys = {
+            -- Chat
+            { "<leader>ac", "<cmd>CodeCompanionChat Toggle<cr>", desc = "AI Chat (toggle)" },
+
+            -- Inline assistant (writes/edits directly in buffer)
+            { "<leader>ai", "<cmd>CodeCompanion<cr>",            desc = "AI Inline" },
+
+            -- Send selection to chat
+            { "<leader>as", "<cmd>CodeCompanionChat Add<cr>",    mode = "v",               desc = "AI Send selection" },
+        },
+        opts = {
+            -- Pick adapters per interaction type
+            interactions = {
+                chat = {
+                    adapter = { name = "ollama", model = "llama3.1:8b" },
+                },
+                inline = {
+                    adapter = { name = "ollama", model = "qwen2.5-coder:7b" },
+                },
+            },
+        },
+    },
+
+    {
         "folke/trouble.nvim",
         opts = {}, -- for default options, refer to the configuration section for custom setup.
         cmd = "Trouble",
