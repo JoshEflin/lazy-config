@@ -18,6 +18,17 @@ lsp_zero.on_attach(function(client, bufnr)
 end)
 
 require('mason').setup({})
+
+local ok, registry = pcall(require, 'mason-registry')
+if ok then
+    registry.refresh(function()
+        local ts_cli = registry.get_package('tree-sitter-cli')
+        if not ts_cli:is_installed() then
+            ts_cli:install()
+        end
+    end)
+end
+
 require('mason-lspconfig').setup({
     ensure_installed = { 'rust_analyzer', 'gopls' },
     handlers = {
