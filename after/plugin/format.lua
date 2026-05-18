@@ -25,6 +25,7 @@ format_on_save.setup({
         typescript = formatters.lsp,
         typescriptreact = formatters.lsp,
         yaml = formatters.lsp,
+        ocaml = formatters.shell({ cmd = { "ocamlformat", "--impl", "%" } }),
 
         -- Add your own shell formatters:
         --    myfiletype = formatters.shell({ cmd = { "myformatter", "%" } }),

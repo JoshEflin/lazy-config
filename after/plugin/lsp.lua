@@ -19,7 +19,7 @@ end)
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
-    ensure_installed = { 'rust_analyzer', 'ocamllsp', 'gopls' },
+    ensure_installed = { 'rust_analyzer', 'gopls' },
     handlers = {
         lsp_zero.default_setup,
         lua_ls = function()
@@ -32,6 +32,9 @@ require('mason-nvim-dap').setup({
     ensure_installed = { "go", "typescript", "javascript", "ocaml" },
     automatic_installation = true,
 })
+
+-- OCaml LSP must be installed via opam (opam install ocaml-lsp-server), not Mason
+require('lspconfig').ocamllsp.setup({})
 
 --local cmp = require('cmp')
 --local cmp_select = { behavior = cmp.SelectBehavior.Select }

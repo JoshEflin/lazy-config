@@ -136,27 +136,13 @@ return {
         dependencies = { "mfussenegger/nvim-dap" },
     },
     {
-        "microsoft/vscode-js-debug",
-        opt = true,
-        build = "npm install --legacy-peer-deps && npx gulp vsDebugServerBundle && mv dist out",
-        version = "1.*",
-    },
-
-    {
-        "mxsdev/nvim-dap-vscode-js",
-        config = function()
-            require("dap-vscode-js").setup({
-                debugger_path = vim.fn.resolve(vim.fn.stdpath("data") .. "/lazy/vscode-js-debug"),
-            })
-        end,
-
-        requires = { "mfussenegger/nvim-dap" }
-    },
-    {
         "jay-babu/mason-nvim-dap.nvim",
         dependencies = { "williamboman/mason.nvim", "mfussenegger/nvim-dap" },
         config = function()
-            require("mason-nvim-dap").setup({})
+            require("mason-nvim-dap").setup({
+                ensure_installed = { "js" },
+                automatic_installation = true,
+            })
         end,
     },
     {
@@ -166,12 +152,11 @@ return {
     { 'laytan/cloak.nvim' },
     { 'lukas-reineke/lsp-format.nvim' },
     { 'nvim-treesitter/nvim-treesitter' },
-    { 'nvim-treesitter/playground' },
     { "ellisonleao/dotenv.nvim" },
     {
         'theprimeagen/harpoon',
         branch = 'harpoon2',
-        requires = { 'nvim-lua/plenary.nvim' },
+        dependencies = { 'nvim-lua/plenary.nvim' },
     },
     { 'mbbill/undotree' },
     {
