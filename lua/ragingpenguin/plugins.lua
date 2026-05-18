@@ -151,7 +151,12 @@ return {
     },
     { 'laytan/cloak.nvim' },
     { 'lukas-reineke/lsp-format.nvim' },
-    { 'nvim-treesitter/nvim-treesitter' },
+    {
+        'nvim-treesitter/nvim-treesitter',
+        branch = 'main',
+        lazy = false,
+        build = ':TSUpdate',
+    },
     { "ellisonleao/dotenv.nvim" },
     {
         'theprimeagen/harpoon',
