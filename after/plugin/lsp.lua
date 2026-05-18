@@ -24,7 +24,8 @@ require('mason-lspconfig').setup({
         lsp_zero.default_setup,
         lua_ls = function()
             local lua_opts = lsp_zero.nvim_lua_ls()
-            require('lspconfig').lua_ls.setup(lua_opts)
+            vim.lsp.config('lua_ls', lua_opts)
+            vim.lsp.enable('lua_ls')
         end,
     }
 })
@@ -34,7 +35,7 @@ require('mason-nvim-dap').setup({
 })
 
 -- OCaml LSP must be installed via opam (opam install ocaml-lsp-server), not Mason
-require('lspconfig').ocamllsp.setup({})
+vim.lsp.enable('ocamllsp')
 
 --local cmp = require('cmp')
 --local cmp_select = { behavior = cmp.SelectBehavior.Select }
